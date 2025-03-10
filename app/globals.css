@@ -1,5 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+@font-face {
+  font-family: "Helios Bold";
+  src: url("/fonts/helios/heliosext-bold.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "Helios";
+  src: url("/fonts/helios/heliosext.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,17 +23,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: #ccff02;
+  --font-helios: "Helios", sans-serif;
+  --font-helios-bold: "Helios Bold", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
 }
