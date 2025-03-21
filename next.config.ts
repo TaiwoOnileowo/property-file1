@@ -6,11 +6,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/blog",
-        destination: "https://property-file-blog.vercel.app",
+        destination: "https://property-file-blog.vercel.app/blog",
       },
       {
         source: "/blog/:path*",
-        destination: "https://property-file-blog.vercel.app/:path*",
+        destination: "https://property-file-blog.vercel.app/blog:path*",
       },
     ];
   },
