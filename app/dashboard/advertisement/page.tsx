@@ -1,13 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { DashboardHeader } from "@/components/(Dashboard)/dashboard-header";
-import { DashboardShell } from "@/components/(Dashboard)/dashboard-shell";
 import { AdvertisementsList } from "@/components/(Dashboard)/advertisements-list";
+import { DashboardHeader } from "@/components/(Dashboard)/dashboard-header";
+import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
 export default function AdvertisementsPage() {
   return (
-    <DashboardShell>
+    <>
       <DashboardHeader
         heading="Advertisements"
         text="Manage your property advertisements"
@@ -20,6 +19,6 @@ export default function AdvertisementsPage() {
         </Link>
       </DashboardHeader>
       <AdvertisementsList />
-    </DashboardShell>
+    </>
   );
 }

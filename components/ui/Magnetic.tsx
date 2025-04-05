@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 export default function Magnetic({
   children,
 }: {
-  children: React.ReactElement;
+  children: React.ReactElement<any, any>;
 }) {
   const magnetic = useRef<HTMLDivElement | null>(null);
 
@@ -36,5 +36,18 @@ export default function Magnetic({
     }
   }, [children]);
 
-  return React.cloneElement(children, { ref: magnetic });
+  return React.cloneElement(children, {
+    ref: (node: HTMLDivElement) => {
+      // Save the node to our local ref
+      magnetic.current = node;
+      
+      // Forward the ref if the children has one
+      const { ref } = children as any;
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+    }
+  });
 }
