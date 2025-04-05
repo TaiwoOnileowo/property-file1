@@ -23,7 +23,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-primary: #ccff02;
+  --color-primary: #00bf63;
   --font-helios: "Helios", sans-serif;
   --font-helios-bold: "Helios Bold", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
@@ -69,7 +69,7 @@
 } */
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Helios", sans-serif;
 }
 
 :root {

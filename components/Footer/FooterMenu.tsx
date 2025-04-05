@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const footerSections = [
   {
@@ -50,12 +50,12 @@ const FooterMenu = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full px-10 lg:px-24 py-8">
+    <div className="grid w-full grid-cols-1 gap-8 px-10 py-8 md:grid-cols-2 lg:grid-cols-4 lg:px-24">
       {footerSections.map((section, index) => (
         <div key={index} className="space-y-4">
           <button
             onClick={() => toggleSection(index)}
-            className="text-lg font-medium text-black w-full text-left flex justify-between items-center"
+            className="flex w-full items-center justify-between text-left text-lg font-medium text-white"
             aria-expanded={openSection === index}
           >
             {section.title}
@@ -76,7 +76,7 @@ const FooterMenu = () => {
               <Link
                 key={idx}
                 href={item.href}
-                className="block text-sm text-black hover:underline"
+                className="block text-sm text-white hover:underline"
               >
                 {item.name}
               </Link>

@@ -10,10 +10,10 @@ const SocialIcon = ({ href, icon: Icon, label }: SocialIconProps) => {
   return (
     <Link
       href={href}
-      className="w-8 h-8 border border-primary rounded-md hover:bg-primary transition-colors flex items-center justify-center"
+      className="border-primary hover:bg-primary flex h-8 w-8 items-center justify-center rounded-md border transition-colors"
       aria-label={label}
     >
-      <Icon className="text-black w-5 h-5" />
+      <Icon className="h-5 w-5 text-white" />
     </Link>
   );
 };

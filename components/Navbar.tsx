@@ -1,43 +1,66 @@
 "use client";
 
+import Header from "@/components/Header/index";
 import { Button } from "@/components/ui/button";
+import logoMobile from "@/public/logo-mobile.svg";
 import logo from "@/public/logo.svg";
-import { Menu, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-export default function Navbar() {
-  return (
-    <header className="w-full bg-black font-helios">
-      <div className="container mx-auto w-full ">
-        {/* Top navbar with logo and actions */}
-        <div className="flex items-center justify-between h-20 border-b border-b-white/20 px-6 mb-4">
-          <button
-            className="text-white cursor-pointer"
-            aria-label="Toggle menu"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
+import { useMediaQuery } from "react-responsive";
 
-          <div className="hidden lg:block w-10">
+export default function Navbar() {
+  const mobileQuery = useMediaQuery({ query: "(max-width: 768px)" });
+  const isMobile = mobileQuery;
+
+  return (
+    <header className="font-helios sticky top-0 z-50 w-full bg-black">
+      <div className="container mx-auto w-full">
+        {/* Top navbar with logo and actions */}
+        <div className="mb-4 flex h-20 items-center justify-between border-b border-b-white/20 px-6">
+          <div className="flex items-center space-x-4 md:justify-between lg:hidden">
+            <div className="md:hidden">
+              <Header />
+            </div>
+
+            <Link href="/" className="flex items-center justify-center">
+              {isMobile ? (
+                <Image src={logoMobile} alt="Property File" width={50} />
+              ) : (
+                <Image src={logo} alt="Property File" width={180} />
+              )}
+            </Link>
+          </div>
+
+          <div className="hidden md:block">
+            <Header />
+          </div>
+
+          <div className="hidden  lg:block">
             {/* Spacer for desktop to center logo */}
           </div>
 
-          <Link href="/" className="flex items-center justify-center">
-            <Image src={logo} alt="Property File" width={180} />
+          <Link
+            href="/"
+            className=" hidden items-center justify-center lg:flex"
+          >
+            {isMobile ? (
+              <Image src={logoMobile} alt="Property File" width={60} />
+            ) : (
+              <Image src={logo} alt="Property File" width={180} />
+            )}
           </Link>
 
           <div className="flex items-center space-x-4 text-sm text-white">
             <Button
               variant="default"
-              className="bg-[#bdea08]/90 hover:bg-[#bdea08]/80 cursor-pointer  text-white  font-bold px-4"
+              className="bg-primary/90 hover:bg-primary cursor-pointer px-4 font-bold text-white "
             >
               Post Property
             </Button>
-
             <Button variant="outline" asChild>
               <Link
                 href="/sign-up"
-                className="hidden md:flex items-center bg-black hover:text-black"
+                className="hidden items-center bg-black hover:text-black md:flex"
               >
                 <span className="mr-1">Sign Up</span>
               </Link>
@@ -45,48 +68,13 @@ export default function Navbar() {
             <Button variant="outline" asChild>
               <Link
                 href="/sign-in"
-                className="hidden md:flex items-center border-none bg-black hover:text-black"
+                className="hidden items-center border-none bg-black hover:text-black md:flex"
               >
                 <span className="mr-1">Sign In</span>
               </Link>
             </Button>
-
-            <button aria-label="Search" className="">
-              <Search className="h-5 w-5 cursor-pointer" />
-            </button>
           </div>
         </div>
-
-        {/* Navigation links */}
-        <nav className="flex justify-center pb-3">
-          <ul className="flex flex-wrap items-center space-x-6 text-white">
-            <li>
-              <Link href="/decoration" className="hover:underline py-2">
-                Decoration
-              </Link>
-            </li>
-            <li>
-              <Link href="/renovation" className="hover:underline py-2">
-                Renovation
-              </Link>
-            </li>
-            <li>
-              <Link href="/conversation" className="hover:underline py-2">
-                Conversation
-              </Link>
-            </li>
-            <li>
-              <Link href="/shopping" className="hover:underline py-2">
-                Shopping
-              </Link>
-            </li>
-            <li>
-              <Link href="/find-a-pro" className="hover:underline py-2">
-                Find a Pro
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </div>
     </header>
   );
