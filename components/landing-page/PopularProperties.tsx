@@ -5,7 +5,7 @@ import { properties } from "@/lib/data";
 
 const PopularProperties = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 max-w-[1440px] mx-auto">
           <div className="container mx-auto px-4">
             <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
               <div>
