@@ -16,7 +16,7 @@ export default function Navbar() {
     <header className="font-helios sticky top-0 z-50 w-full bg-black">
       <div className="container mx-auto w-full">
         {/* Top navbar with logo and actions */}
-        <div className="mb-4 flex h-20 items-center justify-between border-b border-b-white/20 px-6">
+        <div className="flex py-2 items-center justify-between border-b border-b-white/20 px-6">
           <div className="flex items-center space-x-4 md:justify-between lg:hidden">
             <div className="md:hidden">
               <Header />
