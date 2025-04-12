@@ -16,7 +16,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black opacity-30" />
         </div>
         
-        <div className="relative h-full container mx-auto px-4 pt-16">
+        <div className="relative h-full container max-w-[1440px] mx-auto px-4 pt-16">
           <div className="h-[calc(100%-5rem)] flex flex-col justify-center max-w-3xl">
             <h1 className="text-white text-6xl font-bold leading-tight mb-6">
               Experience Elevated Living

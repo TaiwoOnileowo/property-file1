@@ -7,6 +7,20 @@ export const navItems = [
   { name: "Find Property", link: "/properties" },
 ];
 
+export const FIELD_NAMES = {
+  fullName: "Full name",
+  email: "Email",
+  phoneNumber: "Phone number",
+  password: "Password",
+};
+
+export const FIELD_TYPES = {
+  fullName: "text",
+  email: "email",
+  phoneNumber: "text",
+  password: "password",
+};
+
 export const locationItems = [
   { label: "Lekki", value: "lekki" },
   { label: "Ikoyi", value: "ikoyi" },
