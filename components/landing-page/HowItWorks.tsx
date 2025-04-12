@@ -3,7 +3,7 @@ import { Building, Home, Key, Search } from "lucide-react"
 const HowItWorks = () => {
   return (
     <section className="bg-gray-50 py-20">
-      <div className="container mx-auto px-4">
+      <div className="containermax-w-[1440px] mx-auto px-4">
         <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">How It Works</h2>
         <div className="grid gap-8 md:grid-cols-4">
           <div className="text-center">
