@@ -27,10 +27,10 @@ import {
 
 export function AdvertisementsList() {
   return (
-    <Card>
+    <Card className="bg-primary/5 border-gray-500">
       <CardHeader>
-        <CardTitle>Your Advertisements</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-white">Your Advertisements</CardTitle>
+        <CardDescription className="text-gray-500">
           View and manage your property advertisements
         </CardDescription>
       </CardHeader>

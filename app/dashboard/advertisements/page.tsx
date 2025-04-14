@@ -12,7 +12,7 @@ export default function AdvertisementsPage() {
         text="Manage your property advertisements"
       >
         <Link href="/advertisements/new">
-          <Button>
+          <Button className="text-white">
             <Plus className="mr-2 h-4 w-4" />
             Create New Ad
           </Button>

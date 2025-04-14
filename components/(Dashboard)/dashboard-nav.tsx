@@ -41,7 +41,7 @@ export function DashboardNav() {
           <Link key={href} href={href}>
             <Button
               variant={isActive ? "default" : "ghost"}
-              className="w-full justify-start"
+              className="w-full justify-start text-white"
             >
               <Icon className="mr-2 h-4 w-4" />
               {label}

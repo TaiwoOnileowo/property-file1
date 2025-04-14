@@ -10,9 +10,75 @@ import {
 } from "@/components/ui/table";
 import { Edit, Eye } from "lucide-react";
 
+// Define a type for our listing data
+type Listing = {
+  title: string;
+  location: string;
+  type: string;
+  price: number;
+  status: "Active" | "Draft" | "Pending";
+  views: number;
+};
+
+// Sample data
+const listings: Listing[] = [
+  {
+    title: "3 Bedroom Apartment",
+    location: "Lekki Phase 1, Lagos",
+    type: "Apartment",
+    price: 75000000,
+    status: "Active",
+    views: 245,
+  },
+  {
+    title: "4 Bedroom Duplex",
+    location: "Ikoyi, Lagos",
+    type: "House",
+    price: 150000000,
+    status: "Active",
+    views: 189,
+  },
+  {
+    title: "Commercial Space",
+    location: "Victoria Island, Lagos",
+    type: "Commercial",
+    price: 200000000,
+    status: "Draft",
+    views: 0,
+  },
+  {
+    title: "2 Plots of Land",
+    location: "Abuja, FCT",
+    type: "Land",
+    price: 45000000,
+    status: "Active",
+    views: 132,
+  },
+  {
+    title: "3 Bedroom Bungalow",
+    location: "Port Harcourt, Rivers",
+    type: "House",
+    price: 35000000,
+    status: "Pending",
+    views: 78,
+  },
+];
+
 export function RecentListings() {
+  // Helper function to determine badge variant based on status
+  const getBadgeVariant = (status: string) => {
+    switch (status) {
+      case "Draft":
+        return "outline";
+      case "Pending":
+        return "secondary";
+      default:
+        return "default";
+    }
+  };
+
   return (
-    <Table>
+    <Table className="text-gray-500">
       <TableHeader>
         <TableRow>
           <TableHead>Title</TableHead>
@@ -25,106 +91,30 @@ export function RecentListings() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell className="font-medium">3 Bedroom Apartment</TableCell>
-          <TableCell>Lekki Phase 1, Lagos</TableCell>
-          <TableCell>Apartment</TableCell>
-          <TableCell>75,000,000</TableCell>
-          <TableCell>
-            <Badge>Active</Badge>
-          </TableCell>
-          <TableCell>245</TableCell>
-          <TableCell className="text-right">
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" size="icon">
-                <Eye className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Edit className="h-4 w-4" />
-              </Button>
-            </div>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">4 Bedroom Duplex</TableCell>
-          <TableCell>Ikoyi, Lagos</TableCell>
-          <TableCell>House</TableCell>
-          <TableCell>150,000,000</TableCell>
-          <TableCell>
-            <Badge>Active</Badge>
-          </TableCell>
-          <TableCell>189</TableCell>
-          <TableCell className="text-right">
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" size="icon">
-                <Eye className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Edit className="h-4 w-4" />
-              </Button>
-            </div>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">Commercial Space</TableCell>
-          <TableCell>Victoria Island, Lagos</TableCell>
-          <TableCell>Commercial</TableCell>
-          <TableCell>200,000,000</TableCell>
-          <TableCell>
-            <Badge variant="outline">Draft</Badge>
-          </TableCell>
-          <TableCell>0</TableCell>
-          <TableCell className="text-right">
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" size="icon">
-                <Eye className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Edit className="h-4 w-4" />
-              </Button>
-            </div>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">2 Plots of Land</TableCell>
-          <TableCell>Abuja, FCT</TableCell>
-          <TableCell>Land</TableCell>
-          <TableCell>45,000,000</TableCell>
-          <TableCell>
-            <Badge>Active</Badge>
-          </TableCell>
-          <TableCell>132</TableCell>
-          <TableCell className="text-right">
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" size="icon">
-                <Eye className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Edit className="h-4 w-4" />
-              </Button>
-            </div>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">3 Bedroom Bungalow</TableCell>
-          <TableCell>Port Harcourt, Rivers</TableCell>
-          <TableCell>House</TableCell>
-          <TableCell>35,000,000</TableCell>
-          <TableCell>
-            <Badge variant="secondary">Pending</Badge>
-          </TableCell>
-          <TableCell>78</TableCell>
-          <TableCell className="text-right">
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" size="icon">
-                <Eye className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Edit className="h-4 w-4" />
-              </Button>
-            </div>
-          </TableCell>
-        </TableRow>
+        {listings.map((listing, index) => (
+          <TableRow key={index}>
+            <TableCell className="font-medium">{listing.title}</TableCell>
+            <TableCell>{listing.location}</TableCell>
+            <TableCell>{listing.type}</TableCell>
+            <TableCell>{listing.price.toLocaleString()}</TableCell>
+            <TableCell>
+              <Badge variant={getBadgeVariant(listing.status)}>
+                {listing.status}
+              </Badge>
+            </TableCell>
+            <TableCell>{listing.views}</TableCell>
+            <TableCell className="text-right">
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" size="icon">
+                  <Eye className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="icon">
+                  <Edit className="h-4 w-4" />
+                </Button>
+              </div>
+            </TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );
