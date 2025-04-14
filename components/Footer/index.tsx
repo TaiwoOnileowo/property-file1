@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full  bg-black fixed bottom-0">
+    <footer className="w-full  bg-black">
       <FooterMenu />
       <div className="w-full border-t border-t-white/20 px-10 py-6 lg:px-24">
         <div className="flex items-center justify-between gap-6 max-md:flex-col md:flex-row">
