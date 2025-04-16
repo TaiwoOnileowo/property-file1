@@ -26,9 +26,9 @@ export default function AdvertisePage() {
           />
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="font-heliosBold text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
+          <h1 className="font-heliosBold text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl">
             <span className="block">Advertise on</span>
-            <span className="mt-2 block text-[#00bf63]">PropertyFile</span>
+            <span className="mt-2 block  text-transparent bg-gradient-to-r from-primary to-[#20C4B7] bg-clip-text ">PropertyFile</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
             Connect with our engaged audience of property enthusiasts,
@@ -46,7 +46,6 @@ export default function AdvertisePage() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10"
               asChild
             >
               <a href="#ad-types">View Ad Options</a>

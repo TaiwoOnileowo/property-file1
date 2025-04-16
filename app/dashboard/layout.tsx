@@ -1,18 +1,14 @@
-import type React from "react";
 import { DashboardNav } from "@/components/(Dashboard)/dashboard-nav";
 import { MainNav } from "@/components/(Dashboard)/main-nav";
 import { UserNav } from "@/components/(Dashboard)/user-nav";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
+import type React from "react";
 
 interface DashboardShellProps {
   children: React.ReactNode;
 }
 
 export default async function Layout({ children }: DashboardShellProps) {
-  const session = await auth();
 
-  if(!session) redirect("/sign-in")
 
   return (
     <div className="flex min-h-screen overflow-hidden flex-col">
