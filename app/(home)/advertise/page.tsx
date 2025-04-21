@@ -11,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AdvertisePage() {
   return (
@@ -19,7 +20,7 @@ export default function AdvertisePage() {
       <section className="relative overflow-hidden bg-black py-20 md:py-28">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src="/placeholder.svg"
+            src="/landing-page/hero.avif"
             alt="Background pattern"
             fill
             className="object-cover"
@@ -41,7 +42,7 @@ export default function AdvertisePage() {
               className="bg-[#00bf63] text-white hover:bg-[#00a857]"
               asChild
             >
-              <a href="#get-started">Get Started</a>
+              <Link href="/advertise/get-started">Get Started</Link>
             </Button>
             <Button
               variant="outline"
@@ -670,14 +671,17 @@ export default function AdvertisePage() {
               Ready to Grow Your Business?
             </h2>
             <p className="mt-4 text-lg text-white/90">
-              Fill out the form below and our advertising team will contact you
+              Get started and fill out the form and our advertising team will contact you
               within 24 hours.
             </p>
+            <Button variant="secondary" className="mt-4">
+              <Link href="/advertise/get-started">Get Started</Link>
+            </Button>
           </div>
 
-          <div className="mt-12 mx-auto max-w-2xl rounded-xl bg-white p-6 shadow-xl md:p-8">
+          {/* <div className="mt-12 mx-auto max-w-2xl rounded-xl bg-white p-6 shadow-xl md:p-8">
             <AdvertisingForm />
-          </div>
+          </div> */}
         </div>
       </section>
 
